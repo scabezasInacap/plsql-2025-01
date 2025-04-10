@@ -1,0 +1,24 @@
+Para crear un sinónimo público para la tabla DEPARTMENTS en el esquema HR de Oracle, puedes utilizar la siguiente sentencia SQL:
+
+CREATE PUBLIC SYNONYM dept FOR hr.departments;
+
+Explicación de la sentencia:
+
+CREATE PUBLIC SYNONYM: Esta es la instrucción SQL utilizada para crear un sinónimo público. Un sinónimo público puede ser accedido por 
+cualquier usuario de la base de datos sin necesidad de prefijar el nombre del objeto con el nombre del esquema al que pertenece.
+
+dept: Este es el nombre que le estamos asignando al sinónimo público. Es una práctica común utilizar un nombre corto y significativo para
+el sinónimo. En este caso, dept es una abreviatura clara de DEPARTMENTS.
+FOR hr.departments: Especifica el objeto de base de datos para el cual se está creando el sinónimo. En este caso, es la tabla DEPARTMENTS 
+que reside en el esquema hr. Es importante especificar el esquema propietario del objeto (hr) seguido de un punto y el nombre del objeto 
+(departments).
+
+¿Por qué crear un sinónimo público?
+
+Simplifica las consultas: Permite a los usuarios referirse a la tabla DEPARTMENTS simplemente utilizando el nombre del sinónimo (dept) en
+sus consultas, en lugar de tener que especificar el esquema propietario (hr.departments). Esto hace que las consultas sean más cortas y 
+fáciles de leer.
+Oculta la ubicación del objeto: Un sinónimo público puede ocultar el esquema propietario real del objeto. Esto puede ser útil por razones 
+de seguridad o para simplificar la forma en que los usuarios interactúan con la base de datos.
+Facilita la migración y reorganización: Si en el futuro la tabla DEPARTMENTS se moviera a otro esquema, solo necesitarías recrear el 
+sinónimo público apuntando a la nueva ubicación, sin necesidad de modificar las consultas de los usuarios.
