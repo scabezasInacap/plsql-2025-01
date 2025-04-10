@@ -1,0 +1,25 @@
+Para crear un índice no único sobre la columna DEPARTMENT_NAME de la tabla DEPARTMENTS, puedes utilizar la siguiente sentencia SQL:
+
+CREATE INDEX dept_name_idx
+ON departments (department_name);
+
+Explicación de la sentencia:
+
+CREATE INDEX: Esta es la instrucción SQL utilizada para crear un nuevo índice en una tabla.
+
+dept_name_idx: Este es el nombre que le estamos asignando al índice. Siguiendo la convención, incluye el nombre de la tabla (dept) y la columna indexada (name), 
+seguido de _idx. Es importante elegir nombres descriptivos para facilitar la administración de los índices.
+
+ON departments: Especifica la tabla sobre la cual se creará el índice, en este caso, la tabla DEPARTMENTS.
+
+(department_name): Indica la columna que se incluirá en el índice, que es DEPARTMENT_NAME.
+
+¿Por qué crear un índice no único?
+
+Mejora el rendimiento de las consultas: Un índice en DEPARTMENT_NAME permitirá a la base de datos encontrar filas en la tabla DEPARTMENTS de manera más eficiente
+cuando se realizan búsquedas basadas en el nombre del departamento utilizando la cláusula WHERE.
+
+No impone unicidad: Es lógico que puedan existir múltiples referencias al mismo nombre de departamento en otras tablas (por ejemplo, en la tabla EMPLOYEES para indicar 
+en qué departamento trabaja cada empleado). Por lo tanto, necesitamos un índice no único, ya que los nombres de los departamentos pueden repetirse en otras relaciones
+de la base de datos, aunque en la tabla DEPARTMENTS en sí, DEPARTMENT_NAME suele ser único (o al menos se espera que lo sea para identificar departamentos distintos). 
+Sin embargo, la creación de un índice no único es la opción segura a menos que se imponga una restricción de unicidad en la columna.
